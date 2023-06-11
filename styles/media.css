@@ -114,8 +114,8 @@
   }
 
   #login-main {
-  justify-content: center;
- }
+    justify-content: center;
+  }
 }
 
 /* @media screen and (min-width: 455px) {
@@ -135,7 +135,7 @@
 }
 
 @media screen and (min-width: 800px) {
-  main{
+  main {
     min-height: 550px;
   }
 }
@@ -144,4 +144,36 @@
 }
 
 @media screen and (min-width: 1200px) {
+}
+/* ABOUT SITE */
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  .about-content .text,
+  .about-content-2 .text,
+  .about-content-3 .text {
+    padding: 40px;
+    text-align: center;
+  }
+
+  .about-content .text h1,
+  .about-content-2 .text h1,
+  .about-content-3 .text h1 {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    .about-content .text,
+    .about-content-2 .text,
+    .about-content-3 .text {
+      padding: 20px;
+    }
+
+    .about-content .text h1,
+    .about-content-2 .text h1,
+    .about-content-3 .text h1 {
+      font-size: 20px;
+    }
+  }
 }
