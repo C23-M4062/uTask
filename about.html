@@ -1,90 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="description">
 
-    <title>About</title>
-    <link rel="stylesheet" href="./src/styles/style.css" />
-    <link rel="stylesheet" href="./src/styles/media.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar" id="navbar">
-        <div class="logo">
-          <img src="img/checklist.png" alt="Logo" class="logo-image" />
-          <h1 class="logo-title">Utask</h1>
-        </div>
-        <button class="burger">☰</button>
-        <div class="drawer-text">
-          <div>
-            <ul class="nav_item-container">
-              <li class="nav_item"><a href="index.html">Home</a></li>
-              <li class="nav_item"><a href="about.html">About</a></li>
-              <li class="nav_item"><a href="#">Contact</a></li>
-              <li class="nav_item">
-                <button class="sign-in-button">
-                  <a href="login.html">Sign In</a>
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="description">
 
-    <main>
-      <div class="about-content">
-        <div class="text">
-          <h1>Manage Your Task!</h1>
+  <title>About</title>
+  <link rel="stylesheet" href="./src/styles/style.css" />
+  <link rel="stylesheet" href="./src/styles/media.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .bg-green {
+        background-color: rgba(0, 255, 179, 0.06);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar py-3 px-10" id="navbar">
+      <div class="logo">
+        <img src="img/checklist.png" alt="Logo" class="logo-image" />
+        <h1 class="logo-title">Utask</h1>
+      </div>
+      <button class="burger">☰</button>
+      <div class="drawer-text">
+        <div>
+          <ul class="nav_item-container">
+            <li class="nav_item"><a href="index.html" class="">Home</a></li>
+            <li class="nav_item"><a href="about.html"><span class="text-gray-800 font-semibold">About</span></a></li>
+            <li class="nav_item"><a href="#">Contact</a></li>
+            <li class="nav_item">
+              <button class="sign-in-button rounded-3xl py-2 px-3">
+                <a href="login.html">Sign In</a>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- about Utask Jumbotron start -->
+    <div class="custom-main grid lg:grid-cols-2 bg-green mt-10 h-screen">
+
+      <div class="left lg:w-full lg:pl-16">
+        <div class="text" data-aos="fade-up">
+          <ul class="feature">
+            <li>
+              <p id="make">Manage your task! Make it</p>
+            </li>
+            <li>
+              <H2 class="word text-4xl lg:text-7xl mt-1">About <br> UTask!</H2>
+            </li>
+          </ul>
           <!-- Additional text content -->
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo, nobis dicta esse accusamus alias dolor blanditiis ut expedita fuga sit cupiditate corporis? Quam vero ex officia. Fugiat, sint voluptatem!. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Magnam quia, quas corporis amet maiores ad. Minus aperiam hic itaque consequatur! Cumque ipsum assumenda vitae? Ipsum velit animi ab facilis natus?
-          </p>
         </div>
-        <div class="about-image">
-          <img src="img/checklist.png" alt="Image" />
+
+        <div class="sub-text" data-aos="fade-up">
+          <p class="text-gray-500 text-xl my-10">
+            <strong>uTask</strong> provides efficient and structured task<br>
+            management solutions using the help of the<br>
+            API from Google Calendar
+          </p>
         </div>
       </div>
 
-      <div class="about-content-2">
-        <div class="text">
-          <h1>About uTask ?</h1>
+      <div class="people-calendar-img" data-aos="fade-up">
+        <img src="img/checklist.png" class="text-center mx-auto" alt="Image" />
+      </div>
+    </div>
+    <!-- about Utask Jumbotron end -->
+
+    <!-- about Utask White start -->
+    <div class="custom-main grid lg:grid-cols-2 mt-10 h-screen">
+      <div class="people-calendar-img" data-aos="zoom-in">
+        <img src="img/about-check.png" class="text-center mx-auto" alt="Image" />
+      </div>
+
+      <div class="left lg:w-full lg:pl-16">
+        <div class="text" data-aos="fade-down">
+          <ul class="feature">
+            <li>
+              <H1 class="word text-4xl lg:text-5xl mt-1">About UTask</H1>
+            </li>
+          </ul>
           <!-- Additional text content -->
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo, nobis dicta esse accusamus alias dolor blanditiis ut expedita fuga sit cupiditate corporis? Quam vero ex officia. Fugiat, sint voluptatem!. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Magnam quia, quas corporis amet maiores ad. Minus aperiam hic itaque consequatur! Cumque ipsum assumenda vitae? Ipsum velit animi ab facilis natus?
-          </p>
         </div>
-        <div class="about-image-2">
-          <img src="img/about-check.png" alt="Image" />
+
+        <div class="" data-aos="fade-down">
+          <p class="text-gray-500 text-xl my-10 mr-20 text-justify">
+            uTask is a website for structuring or managing
+            tasks or assignments. This website will also
+            combine all email accounts owned by users so
+            that they become one place and are not
+            separated. We took this problem because we
+            ourselves had experienced difficulties in
+            managing SIB and other household tasks. What's
+            more, there are friends who take part-time jobs
+            which are difficult to divide the time.
+          </p>
         </div>
       </div>
 
-      <div class="about-content-3">
-        <div class="text">
-          <h1>Why uTask ?</h1>
+    </div>
+    <!-- about Utask White end -->
+
+    <!-- why Utask start -->
+    <div class="custom-main grid lg:grid-cols-2 bg-green mt-10 h-screen">
+
+      <div class="left lg:w-full lg:pl-16">
+        <div class="text" data-aos="fade-down">
+          <ul class="feature">
+            <li>
+              <H1 class="word text-4xl lg:text-5xl mt-1 text-center">Why UTask?</H1>
+            </li>
+          </ul>
           <!-- Additional text content -->
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo, nobis dicta esse accusamus alias dolor blanditiis ut expedita fuga sit cupiditate corporis? Quam vero ex officia. Fugiat, sint voluptatem!. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Magnam quia, quas corporis amet maiores ad. Minus aperiam hic itaque consequatur! Cumque ipsum assumenda vitae? Ipsum velit animi ab facilis natus?
-          </p>
         </div>
-        <div class="about-image-3">
-          <img src="img/about-ques.png" alt="Image" />
+
+        <div class="sub-text" data-aos="fade-down">
+          <ol type="1" class="text-gray-500 text-xl my-10 mr-16 text-justify list-decimal">
+            <li>
+              uTask have to manage tasks and organize tasks by integrating email with Google Calendar.
+            </li>
+            <li>
+              Manage task management in an efficient and structured manner using the help of Google Calendar's API.
+            </li>
+            <li>
+              Insert a collection link with a reminder, so you don't forget when there is an assignment submission
+              deadline.
+            </li>
+          </ol>
         </div>
       </div>
-    </main>
-    
-    <!-- Additional content goes here -->
-    <footer>
-      <p>&copy; 2023 TIM C23 - M4062. All rights reserved.</p>
-    </footer>
 
-    <script src="./src/styles/drawer.js"></script>
-    <script src="./src/styles/scroll.js"></script>
+      <div class="people-calendar-img" data-aos="fade-up">
+        <img src="img/about-ques.png" class="text-center mx-auto" alt="Image" />
+      </div>
+    </div>
+    <!-- why Utask end -->
+  </main>
+
+  <!-- Additional content goes here -->
+  <footer class="py-3 w-full h-10 h-full">
+    <p>&copy; 2023 TIM C23 - M4062. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./src/styles/drawer.js"></script>
+  <script src="./src/styles/scroll.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
 </html>
-
