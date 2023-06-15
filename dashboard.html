@@ -1,47 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta content="description" />
 
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="./src/styles/style.css" />
-    <link rel="stylesheet" href="./src/styles/media.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar" id="navbar">
-        <div class="logo">
-          <img src="img/checklist.png" alt="Logo" class="logo-image" />
-          <h1 class="logo-title">Utask</h1>
-        </div>
-        <button class="burger">☰</button>
-        <div class="drawer-text">
-          <div>
-            <ul class="nav_item-container">
-              <li class="nav_item"><a href="index.html">Home</a></li>
-              <li class="nav_item">example@dicoding.org</li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta content="description" />
 
-    <main id="dashboard">
-      <div class="header-filter">
-        <div class="filter-item" id="fi-1">
-          <p>All Tasks</p>
-        </div>
-        <div class="filter-item" id="fi-2">
-          <p>Today Tasks</p>
-        </div>
-        <div class="filter-item" id="fi-3">
-          <p>Passed Tasks</p>
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="./src/styles/style.css" />
+  <link rel="stylesheet" href="./src/styles/media.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .bg-green {
+        background-color: rgba(0, 255, 179, 0.06);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar py-3 px-10" id="navbar">
+      <a href="index.html" class="logo">
+        <img src="img/checklist.png" alt="Logo" class="logo-image" />
+        <h1 class="logo-title">Utask</h1>
+      </a>
+      <button class="burger">☰</button>
+      <div class="drawer-text">
+        <div>
+          <ul class="nav_item-container">
+            <li class="nav_item"><a href="dashboard.html" class="">
+                <span class="text-gray-800 font-semibold">Home</span>
+              </a></li>
+            <li class="nav_item">example@dicoding.org</li>
+          </ul>
         </div>
       </div>
-      <div class="item">
+    </nav>
+  </header>
+
+  <main class="custom-main grid lg:grid-cols-1 mt-10 min-h-screen" id="dashboard">
+    <div class="mt-16">
+      <div class="header-filter mx-auto py-3 mb-10 w-8/12" data-aos="zoom-in">
+        <div class="filter-item font-bold" id="fi-1" onclick="getAllTask()">
+          <p class="hover:cursor-pointer">All Tasks</p>
+        </div>
+        <div class="filter-item text-gray-400" id="fi-2" onclick="getTodayTask()">
+          <p class="hover:cursor-pointer">Today Tasks</p>
+        </div>
+        <div class="filter-item text-gray-400" id="fi-3" onclick="getPassedTask()">
+          <p class="hover:cursor-pointer">Passed Tasks</p>
+        </div>
+      </div>
+
+      <!-- today task -->
+      <div class="item mx-auto my-5 today-task w-8/12" data-aos="fade-up">
         <div class="item-date">
           11 jun 2023
         </div>
@@ -49,17 +66,79 @@
           Konsultasi Mingguan
         </div>
         <div class="item-time">
-          11:00 AM - 12:00 PM 
+          11:00 AM - 12:00 PM
         </div>
       </div>
-    </main>
 
-    <!-- Additional content goes here -->
-    <footer>
-      <p>&copy; 2023 TIM C23 - M4062. All rights reserved.</p>
-    </footer>
+      <!-- passed task -->
+      <div class="item mx-auto my-5 passed-task w-8/12" data-aos="fade-up">
+        <div class="item-date">
+          11 jun 2023
+        </div>
+        <div class="item-name">
+          Konsultasi Minggu 11
+        </div>
+        <div class="item-time">
+          11:00 AM - 12:00 PM
+        </div>
+      </div>
 
-    <script src="./src/styles/drawer.js"></script>
-    <script src="./src/styles/scroll.js"></script>
-  </body>
+    </div>
+
+  </main>
+
+  <!-- Additional content goes here -->
+  <footer class="py-3 w-full h-10 h-full">
+    <p>&copy; 2023 TIM C23 - M4062. All rights reserved.</p>
+  </footer>
+
+  <script src="./src/styles/drawer.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- <script src="./src/styles/scroll.js"></script> -->
+  <script>
+    AOS.init({
+      once: true, // Ensure animations are triggered every time
+      mirror: true // Allow animations to be repeated
+    });
+    const allTaskFilter = document.querySelector('#fi-1');
+    const todayTaskFilter = document.querySelector('#fi-2');
+    const passedTaskFilter = document.querySelector('#fi-3');
+
+    function getTodayTask() {
+      setButton(todayTaskFilter, passedTaskFilter, allTaskFilter);
+
+      const todayTask = document.querySelector('.today-task');
+      todayTask.classList.remove('hidden');
+      AOS.refresh();
+      const passedTask = document.querySelector('.passed-task');
+      passedTask.classList.add('hidden');
+    }
+    function getPassedTask() {
+      setButton(passedTaskFilter, todayTaskFilter, allTaskFilter);
+
+      const passedTask = document.querySelector('.passed-task');
+      passedTask.classList.remove('hidden');
+      const todayTask = document.querySelector('.today-task');
+      todayTask.classList.add('hidden');
+    }
+    function getAllTask() {
+      setButton(allTaskFilter, passedTaskFilter, todayTaskFilter);
+
+      const noDisplayTask = document.querySelector('.hidden');
+      noDisplayTask.classList.remove('hidden');
+    }
+
+    function setButton(active, nonactive1, nonactive2) {
+      active.classList.add('font-bold');
+      active.classList.remove('text-gray-400');
+
+      nonactive1.classList.remove('font-bold');
+      nonactive1.classList.add('text-gray-400');
+
+      nonactive2.classList.remove('font-bold');
+      nonactive2.classList.add('text-gray-400');
+    }
+  </script>
+</body>
+
 </html>
