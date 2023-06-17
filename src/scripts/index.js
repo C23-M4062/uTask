@@ -1,3 +1,4 @@
+import '@fortawesome/fontawesome-free/js/all';
 import 'regenerator-runtime'
 import '../styles/style.css'
 import '../styles/media.css'
