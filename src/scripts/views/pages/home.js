@@ -1,5 +1,5 @@
 const Home = {
-  async render () {
+  async render() {
     return `
       <div class="left">
         <div class="text">
@@ -21,7 +21,7 @@ const Home = {
             kendala-kendala yang sering terjadi dalam manajemen tugas.
           </p>
           <button class="get-started">
-            <a href="dashboard.html">Get Started</a>
+            <a href="#/dashboard">Get Started</a>
           </button>
         </div>
       </div>
@@ -29,40 +29,40 @@ const Home = {
       <div class="people-calendar-img">
         <img src="img/homepage-main.png" alt="Image" />
       </div>      
-    `
+    `;
   },
 
-  async afterRender () {
+  async afterRender() {
     // Fungsi ini akan dipanggil setelah render()
-    const element = document.querySelector('main')
-    element.id = ''
+    const element = document.querySelector("main");
+    element.id = "";
     // Scrolling
-    let prevScrollpos = window.pageYOffset
-    const navbar = document.getElementById('navbar')
+    let prevScrollpos = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
 
     window.onscroll = function () {
-      const currentScrollPos = window.pageYOffset
+      const currentScrollPos = window.pageYOffset;
 
       if (prevScrollpos > currentScrollPos) {
-        navbar.style.top = '0'
+        navbar.style.top = "0";
       } else {
-        navbar.style.top = '-120px'
+        navbar.style.top = "-120px";
       }
 
-      prevScrollpos = currentScrollPos
-    }
+      prevScrollpos = currentScrollPos;
+    };
     // sliding
-    const words = ['ORGANIZED!', 'PRESENTABLE!', 'SCHEDULED!']
-    let currentIndex = 0
-    const wordElement = document.getElementById('word')
+    const words = ["ORGANIZED!", "PRESENTABLE!", "SCHEDULED!"];
+    let currentIndex = 0;
+    const wordElement = document.getElementById("word");
 
-    function changeWord () {
-      wordElement.innerText = words[currentIndex]
-      currentIndex = (currentIndex + 1) % words.length
+    function changeWord() {
+      wordElement.innerText = words[currentIndex];
+      currentIndex = (currentIndex + 1) % words.length;
     }
 
-    setInterval(changeWord, 2000)
-  }
-}
+    setInterval(changeWord, 2000);
+  },
+};
 
-export default Home
+export default Home;

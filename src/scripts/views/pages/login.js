@@ -1,5 +1,5 @@
 const Login = {
-  async render () {
+  async render() {
     return `
       <div class="left">
         <div class="img-app">
@@ -25,21 +25,21 @@ const Login = {
             <i class="fab fa-google"></i> Sign In
           </button>
           <button class="btn-about">
-            <a href="index.html">Find More</a>
+            <a href="#/about">Find More</a>
           </button>
         </div>
       </div>
       <div class="side-img">
         <img src="img/people.png" alt="" />
       </div>
-    `
+    `;
   },
 
-  async afterRender () {
-    const element = document.querySelector('main')
-    element.id = 'login-main'
+  async afterRender() {
+    const element = document.querySelector("main");
+    element.id = "login-main";
     // Fungsi ini akan dipanggil setelah render()
-  }
-}
+  },
+};
 
-export default Login
+export default Login;
