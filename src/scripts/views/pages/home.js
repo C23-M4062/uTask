@@ -33,6 +33,9 @@ const Home = {
   },
 
   async afterRender() {
+
+
+    
     // Fungsi ini akan dipanggil setelah render()
     const element = document.querySelector("main");
     element.id = "";

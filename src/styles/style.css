@@ -94,6 +94,26 @@ header {
   background-color: #166a47;
 }
 
+.logout-button {
+  background-color: #bf3939;
+  border: none;
+  margin-left: 0px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.logout-button a {
+  color: #fff;
+}
+
+.logout-button:hover {
+  background-color: #6a1616;
+}
+
 .people-calendar-img img {
   max-width: 380px;
 }
@@ -275,7 +295,7 @@ main {
 #login-main {
   margin-top: 4rem;
   left: 0;
-} 
+}
 
 .content-login {
   display: flex;
@@ -299,7 +319,6 @@ main {
   width: 150px;
   margin-left: 20px;
 }
-
 
 .line1 {
   margin-right: 3%;

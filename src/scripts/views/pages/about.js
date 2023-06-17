@@ -1,5 +1,5 @@
 const About = {
-  async render () {
+  async render() {
     return `
       <div class="about-content">
         <div class="text">
@@ -42,14 +42,14 @@ const About = {
           <img src="img/about-ques.png" alt="Image" />
         </div>
       </div>
-    `
+    `;
   },
 
-  async afterRender () {
-    const element = document.querySelector('main')
-    element.id = ''
+  async afterRender() {
+    const element = document.querySelector("main");
+    element.id = "";
     // Fungsi ini akan dipanggil setelah render()
-  }
-}
+  },
+};
 
-export default About
+export default About;
