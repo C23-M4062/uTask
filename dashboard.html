@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="description" />
+
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <link rel="stylesheet" href="./src/styles/media.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar" id="navbar">
+        <div class="logo">
+          <img src="img/checklist.png" alt="Logo" class="logo-image" />
+          <h1 class="logo-title">Utask</h1>
+        </div>
+        <button class="burger">☰</button>
+        <div class="drawer-text">
+          <div>
+            <ul class="nav_item-container">
+              <li class="nav_item"><a href="index.html">Home</a></li>
+              <li class="nav_item">example@dicoding.org</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="dashboard">
+      <div class="header-filter">
+        <div class="filter-item" id="fi-1">
+          <p>All Tasks</p>
+        </div>
+        <div class="filter-item" id="fi-2">
+          <p>Today Tasks</p>
+        </div>
+        <div class="filter-item" id="fi-3">
+          <p>Passed Tasks</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-date">
+          11 jun 2023
+        </div>
+        <div class="item-name">
+          Konsultasi Mingguan
+        </div>
+        <div class="item-time">
+          11:00 AM - 12:00 PM 
+        </div>
+      </div>
+    </main>
+
+    <!-- Additional content goes here -->
+    <footer>
+      <p>&copy; 2023 TIM C23 - M4062. All rights reserved.</p>
+    </footer>
+
+    <script src="./src/styles/drawer.js"></script>
+    <script src="./src/styles/scroll.js"></script>
+  </body>
+</html>

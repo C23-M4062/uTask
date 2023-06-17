@@ -1,0 +1,248 @@
+/*
+ * Style for Media Query
+ */
+
+@media screen and (max-width: 535px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  /*
+   * Drawer Navigation
+   */
+
+  .burger {
+    display: block;
+    text-decoration: none;
+    background-color: transparent;
+    border: #062a0200;
+    font-size: 28px;
+    padding: 12px;
+    z-index: 100;
+    margin-right: 10px;
+    color: black;
+  }
+
+  .drawer {
+    z-index: 100;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 210px;
+    position: absolute;
+    right: 0;
+
+    /* This trasform moves the drawer off canvas. */
+    -webkit-transform: translate(0, -100px);
+    transform: translate(0, -140px);
+    /* Optionally, we animate the drawer. */
+    transition: transform 0.3s ease;
+  }
+
+  .nav_item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: space-around;
+    padding-left: 30px;
+  }
+
+  .nav_item {
+    width: 100%;
+    text-align: left;
+    padding-top: 8px;
+    margin: 5px;
+  }
+
+  .nav_item a {
+    padding: 12px 5px 12px 5px;
+    font-size: 18px;
+  }
+
+  .open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 140px);
+  }
+
+
+
+  /*
+   * Content Style
+   */
+
+  main {
+     margin-top: 6rem; 
+     min-height: 900px;
+  }
+
+  .side-img {
+    text-align: center;
+  }
+
+  .side-img img {
+    margin: 10px 0;
+    width: 320px;
+  }
+
+  footer {
+    margin-top: 40px;
+  }
+
+  .left {
+    width: auto;
+    height: auto;
+    flex-basis: 100%;
+  }
+  .people-calendar-img img,
+  .gclogo-img img,
+  .gcalendar-img img,
+  .people-img img {
+    flex-basis: 100%;
+  }
+
+  /*
+   * Login Style
+   */
+
+  .img-app {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .logo-check {
+    width: 120px;
+  }
+  .logo-gc {
+    width: 85px;
+    margin-left: 20px;
+  }
+  .line1.line2 {
+    width: 50px;
+  }
+
+  .people-calendar-img img {
+    margin: 10px 0;
+    width: 320px;
+  }
+
+  #login-main {
+    justify-content: center;
+  }
+}
+
+/* @media screen and (min-width: 455px) {
+.left {
+    width: auto;
+    height: auto;
+    flex-basis: 50%;
+  }
+  .people-calendar-img img,
+  .gclogo-img img,
+  .gcalendar-img img,
+  .people-img img {
+    width: 100%;
+    flex-basis: 50%;
+  }
+} */
+
+/* 
+@media screen and (min-width: 500px) {
+} */
+
+/* @media screen and (max-width: 600px) {
+
+} */
+
+@media screen and (min-width: 650px) {
+}
+
+@media screen and (min-width: 700px) {
+}
+
+@media screen and (min-width: 800px) {
+  main {
+    min-height: 550px;
+  }
+
+  img {
+    width: auto;
+  }
+
+  
+}
+
+/* @media screen and (max-width: 759px) {
+  #order_1{
+    order: 1;
+  }
+  #order_2{
+    order: 2;
+  }
+  #order_3{
+    order: 4;
+  }
+  #order_4{
+    order: 3;
+  }
+} */
+@media screen and (max-width: 899px) {
+  #word {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #word {
+    font-size: 4rem;
+    line-height: 1;
+  }
+  #get-connect {
+    width: 200px;
+    flex-basis: 30% ;
+  }
+  /* #gap-left {
+    margin-left: 45px;
+  }
+  #gap-right {
+    margin-right: 45px;
+  } */
+}
+
+@media screen and (min-width: 1300px) {
+  main {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
+/* ABOUT SITE */
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  .about-content .text,
+  .about-content-2 .text,
+  .about-content-3 .text {
+    padding: 40px;
+    text-align: center;
+  }
+
+  .about-content .text h1,
+  .about-content-2 .text h1,
+  .about-content-3 .text h1 {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    .about-content .text,
+    .about-content-2 .text,
+    .about-content-3 .text {
+      padding: 20px;
+    }
+
+    .about-content .text h1,
+    .about-content-2 .text h1,
+    .about-content-3 .text h1 {
+      font-size: 20px;
+    }
+  }
+}
