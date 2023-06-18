@@ -126,7 +126,7 @@ const Home = {
       if (prevScrollpos > currentScrollPos) {
         navbar.style.top = '0'
       } else {
-        navbar.style.top = '-120px'
+        navbar.style.top = '-260px'
       }
 
       prevScrollpos = currentScrollPos
@@ -143,8 +143,6 @@ const Home = {
     setInterval(changeWord, 2000)
     // Initialize AOS library
     AOS.init()
-
-    // Scrolling and sliding code omitted for brevity
   }
 }
 

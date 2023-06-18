@@ -10,6 +10,10 @@ const Dashboard = {
         main {
           align-content: flex-start; 
         }
+        .open {
+          -webkit-transform: translate(0, 0);
+          transform: translate(0, 80%);
+        }
       </style>
 
       <div class="header-filter" id="header-filter">
@@ -109,9 +113,7 @@ const Dashboard = {
               <a href="#/dashboard" id="notification-bell" onclick="handleNotificationClick()">
                 <i class="fas fa-bell"></i>
               </a>
-            </li>
-            <li class="nav_item" id="nav_home"><a href="#/home">Home</a></li>
-            <li class="nav_item"><a href="#/dashboard">Dashboard</a></li>
+            </li>                        
             <li class="nav_item">example@dicoding.org</li>
             <li class="nav_item">
               <button class="logout-button" onclick="handleLogout()">
@@ -156,6 +158,17 @@ const Dashboard = {
       const modalOverlay = document.getElementById('modal-overlay')
       modalOverlay.style.display = 'none'
     }
+
+    // deleting Class "Open"
+    const drawer = document.getElementById('dynamic-header')
+
+    function removeOpenClass () {
+      if (window.innerWidth > 535) {
+        drawer.classList.remove('open')
+      }
+    }
+    window.addEventListener('DOMContentLoaded', removeOpenClass)
+    window.addEventListener('resize', removeOpenClass)
   }
 }
 

@@ -8,6 +8,13 @@ const Login = {
         main {
           align-content: flex-start; 
         }
+        .nav_item-container {
+          padding-bottom: 0;
+        }
+        .open {
+          -webkit-transform: translate(0, 0);
+          transform: translate(0, 68%);
+        }
       </style>
 
       <div class="left">

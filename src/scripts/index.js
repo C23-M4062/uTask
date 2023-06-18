@@ -1,9 +1,8 @@
-import '@fortawesome/fontawesome-free/js/all';
+import '@fortawesome/fontawesome-free/js/all'
 import 'regenerator-runtime'
 import '../styles/style.css'
 import '../styles/media.css'
 import '../styles/drawer'
-import '../styles/scroll'
 import App from './views/app'
 
 const app = new App({

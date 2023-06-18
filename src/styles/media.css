@@ -10,45 +10,58 @@
   /*
    * Drawer Navigation
    */
-
+  .logo {
+    flex-basis: 25%;
+  }
   .burger {
     display: block;
     text-decoration: none;
     background-color: transparent;
     border: #062a0200;
     font-size: 28px;
-    padding: 12px;
+    padding: 12px 0;
     z-index: 100;
-    margin-right: 10px;
     color: black;
+    flex-basis: 13%;
+  }
+
+  .nav-bell {
+    display: block;
+    font-size: 22px;
+    padding: 13px;
+    z-index: 100;
+    flex-basis: 55%;
+    text-align: right;
+  }
+  #nav_bell {
+    display: none;
   }
 
   .drawer {
     z-index: 100;
     background-color: #f1f1f1;
     width: 100%;
-    height: 210px;
+    height: min-content;
     position: absolute;
     right: 0;
 
     /* This trasform moves the drawer off canvas. */
     -webkit-transform: translate(0, -100px);
-    transform: translate(0, -140px);
+    transform: translate(0, -160px);
     /* Optionally, we animate the drawer. */
     transition: transform 0.3s ease;
   }
 
   .nav_item-container {
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-content: space-around;
-    padding-left: 30px;
+    padding: 0px 20px 15px 0px;
   }
 
   .nav_item {
     width: 100%;
-    text-align: left;
+    text-align: right;
     padding-top: 8px;
     margin: 5px;
   }
@@ -60,18 +73,22 @@
 
   .open {
     -webkit-transform: translate(0, 0);
-    transform: translate(0, 140px);
+    transform: translate(0, 63%);
   }
 
-
+  .gcalendar-img img {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
 
   /*
    * Content Style
    */
 
   main {
-     margin-top: 6rem; 
-     min-height: 900px;
+    margin-top: 6rem;
+    min-height: 900px;
   }
 
   .side-img {
@@ -97,6 +114,7 @@
   .gcalendar-img img,
   .people-img img {
     flex-basis: 100%;
+    
   }
 
   /*
@@ -122,6 +140,10 @@
   .people-calendar-img img {
     margin: 10px 0;
     width: 320px;
+  }
+
+  .text-last {
+    width: 95%;
   }
 
   #login-main {
@@ -166,8 +188,6 @@
   img {
     width: auto;
   }
-
-  
 }
 
 /* @media screen and (max-width: 759px) {
@@ -198,7 +218,7 @@
   }
   #get-connect {
     width: 200px;
-    flex-basis: 30% ;
+    flex-basis: 30%;
   }
   /* #gap-left {
     margin-left: 45px;
