@@ -43,7 +43,7 @@ const About = {
     
     <div class="text" data-aos="fade-up">
       <ul class="feature">
-        <li><p id="make">About UTask!</p></li>
+        <li><p id="make">About uTask!</p></li>
         
       </ul>
       <!-- Additional text content -->
@@ -108,6 +108,7 @@ const About = {
   },
 
   async afterRender () {
+    
     const element = document.querySelector('main')
     element.id = ''
     // Fungsi ini akan dipanggil setelah render()
