@@ -680,6 +680,88 @@ main {
 }
 
 /*
+ * Team
+ */
+
+ .team
+ {
+   padding: 4rem 3% 1.4rem;
+ }
+ 
+ .team h2
+  {
+   font-weight: 600;
+   text-align: center;
+   font-size: 2rem;
+   margin-bottom: 3rem;
+ }
+ 
+ .team h3
+  {
+   font-weight: 600;
+   text-align: center;
+   font-size: 1.2rem;
+ }
+ 
+ .team h2 span{
+   color: #138656;
+ }
+ 
+  .team h2,
+  .contact h2 {
+    margin-bottom: 3rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .team p {
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 500;
+    line-height: 1.6;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .team .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+  }
+  
+  .team .row .team-card {
+    text-align: center;
+    width: 30%;
+    margin: 0rem 4rem 0rem 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .team .row .team-card img {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+  }
+  
+  .team .row .team-card .team-card-tittle {
+    margin-top: 1.5rem;
+  }
+ 
+  .email {
+   text-align: center;
+   margin-top: 50px;
+ }
+ 
+ .email a {
+   display: inline-block;
+   font-size: 36px;
+   color: #39bf87;
+   text-decoration: none;
+   transition: color 0.3s ease;
+ }
+ 
+ .email a:hover {
+   color: #138656;
+ }
+
+/*
  * Footer
  */
 
