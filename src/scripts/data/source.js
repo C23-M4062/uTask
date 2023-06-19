@@ -4,7 +4,7 @@ class CalendarSource {
   static async dataCalendar () {
     const response = await fetch(API_ENDPOINT.DATA)
     const responseJson = await response.json()
-    return responseJson.data.items;
+    return responseJson;
   }
 
   static async detailCalendar () {
