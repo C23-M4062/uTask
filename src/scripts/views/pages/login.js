@@ -38,7 +38,7 @@ const Login = {
         </div>
         <div>
           <button class="btn-login">
-            <i class="fa-brands fa-google" style="color: #ffffff;"></i> <a href="#/dashboard">Sign In</a>
+            <i class="fa-brands fa-google" style="color: #ffffff;"></i> <a href="https://utask-backend-production.up.railway.app/auth/login-gl">Sign In</a>
           </button>
           <button class="btn-about">
             <a href="#/home">Find More</a>
@@ -52,7 +52,7 @@ const Login = {
       <style>
         
       </style>
-    `
+    `;
   },
 
   async afterRender () {

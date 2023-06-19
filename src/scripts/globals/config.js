@@ -1,5 +1,5 @@
 const CONFIG = {
-  KEY: '~'
-}
+  BASE_URL: "https://utask-backend-production.up.railway.app/calendar",
+};
 
-export default CONFIG
+export default CONFIG;

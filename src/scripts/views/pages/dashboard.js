@@ -1,4 +1,6 @@
 import '@fortawesome/fontawesome-free/js/all'
+import CalendarSource from '../../data/source'
+import { dataCalendarTemplate } from '../templates/template-creator'
 
 const Dashboard = {
   async render () {
@@ -27,76 +29,34 @@ const Dashboard = {
           <p>Passed Tasks</p>
         </a>
       </div>
-      <div class="item" onclick="showItemDetails(this)">
-        <div class="item-date">11 Jun 2023</div>
-        <div class="item-name">Konsultasi Mingguan</div>
-        <div class="item-time">11:00 AM - 12:00 PM</div>
+
+      <div class="item_container">
+        
       </div>
+      
+
 
       <!-- Modal or overlay element -->
-      <div class="modal-overlay" id="modal-overlay">
-        <div class="modal-content">
-          <div class="popup-wrapper">
-            <div class="popup-header">
-              <h1 id="popup-title">Title</h1>
-              <button class="close-button" onclick="hideItemDetails()">&times;</button>
-            </div>
-            <div class="popup-body">
-              <ul class="popup-list">
-                <li>
-                  <div class="popup-item">
-                    <p id="popup-day">Friday, 16 June 2023</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="popup-item">
-                    <i class="far fa-clock"></i>
-                    <p id="popup-time">Time</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="popup-item">
-                    <i class="far fa-calendar-alt"></i>
-                    <p id="popup-date">Date</p>
-                    <br>
-                  </div>
-                </li>
-                <div class="popup-description">
-                  <p id="popup-description-text">Hi F-18!
-                  <br>
-                  Kami mengundang Anda untuk menghadiri konsultasi mingguan - 14. Sesi ini akan di fasilitasi oleh mentor: Lale Inaya Firasya.
-                  Silakan persiapkan jika Anda memiliki pertanyaan atau concern tertentu yang ingin bagikan ke mentor Anda.
-                  <br>
-                  Terima kasih & Semoga menyenangkan!
-                  </p><br>
-                </div>
-                <li>
-                  <div class="popup-item">
-                    <i class="fab fa-google-plus"></i>
-                    <p id="popup-meet-link">Join with Google Meet: https://meet.google.com/ehe-hgvu-xn</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="popup-item">
-                    <i class="far fa-address-card"></i>
-                    <p id="popup-mentor">Lale Inaya Firasya</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="popup-item">
-                    <i class="fas fa-pencil-alt"></i>
-                    <p id="popup-created-by">Created by SIB 4 DICODING</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    `
+      
+    `;
   },
 
   async afterRender () {
+    // Getting All Data
+    const calendars = await CalendarSource.dataCalendar()
+    console.log(calendars)
+
+    const items = document.querySelector('.item_container')
+    calendars.forEach((item) => {
+      items.innerHTML += dataCalendarTemplate(item)
+    })
+
+    // Main Detail (id)
+    const calendarDetail = await CalendarSource.detailCalendar()
+    console.log(calendarDetail)
+
+    // Other
+
     window.handleFilterClick = (filterId) => {
       console.log(`Filter ${filterId} clicked`)
     }
