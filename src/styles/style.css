@@ -559,6 +559,14 @@ main {
   box-shadow: -2px 3px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
+.item-id {
+  display: none;
+}
+
+#popup-id {
+  display: none;
+}
+
 .item:hover {
   cursor: pointer;
 }
@@ -595,6 +603,7 @@ main {
 }
 
 .modal-content {
+  overflow: hidden;
   position: relative;
   background-color: #fff;
   width: 400px;
@@ -619,7 +628,12 @@ main {
 }
 
 .close-button {
-  background-color: transparent;
+  position: fixed;
+  width: 35px;
+  border-radius: 100%;
+  margin-top: -100px;
+  margin-left: 350px;
+  background-color:#fff;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -656,12 +670,19 @@ main {
 .popup-list p {
   margin: 0;
   font-size: 14px;
-  display: flex;
   align-items: center;
 }
 
 .popup-list p i {
   margin-right: 5px;
+}
+
+#popup-description-text a {
+  color: blue;
+}
+
+#popup-meet-link a {
+  color: blue;  
 }
 
 @keyframes fade-in {

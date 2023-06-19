@@ -6,9 +6,6 @@ const Dashboard = {
   async render () {
     return `
       <style>
-        .sign-in-button {
-          display: none;
-        }
         main {
           align-content: flex-start; 
         }
@@ -37,19 +34,116 @@ const Dashboard = {
 
 
       <!-- Modal or overlay element -->
-      
-    `;
+      <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+          <div class="popup-wrapper">
+            <div class="popup-header">
+              <h1 id="popup-title">Title</h1>
+              <button class="close-button" onclick="hideItemDetails()">&times;</button>
+            </div>
+            <div class="popup-body">
+              <ul class="popup-list">
+                <li>
+                  <div class="popup-item">
+                    <p id="popup-day">Friday, 16 June 2023</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="popup-item">
+                    <i class="far fa-clock"></i>
+                    <p id="popup-time">Time</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="popup-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <p id="popup-date">Date</p>
+                    <br>
+                  </div>
+                </li>
+                <li>
+                  <div class="popup-item">
+                    <p id="popup-id">Id</p>
+                  </div>
+                </li>
+                <div class="popup-description">
+                  <p id="popup-description-text">Hi F-18!
+                  <br>
+                  Kami mengundang Anda untuk menghadiri konsultasi mingguan - 14. Sesi ini akan di fasilitasi oleh mentor: Lale Inaya Firasya.
+                  Silakan persiapkan jika Anda memiliki pertanyaan atau concern tertentu yang ingin bagikan ke mentor Anda.
+                  <br>
+                  Terima kasih & Semoga menyenangkan!
+                  </p><br>
+                </div>
+                <li>
+                  <div class="popup-item">
+                    <i class="fab fa-google-plus"></i>
+                    <p id="popup-meet-link">Join with Google Meet: </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="popup-item">
+                    <i class="far fa-address-card"></i>
+                    <p id="popup-mentor">Lale Inaya Firasya</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="popup-item">
+                    <i class="fas fa-pencil-alt"></i>
+                    <p id="popup-created-by">Created by SIB 4 DICODING</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
   },
 
   async afterRender () {
     // Getting All Data
-    const calendars = await CalendarSource.dataCalendar()
-    console.log(calendars)
+    const calendarsData = await CalendarSource.dataCalendar();
+    const calendars = calendarsData?.data?.items; // Memperbarui cara mendapatkan nilai `calendars`
+    const summary = calendarsData?.data?.summary
+    console.log(summary)
 
-    const items = document.querySelector('.item_container')
-    calendars.forEach((item) => {
-      items.innerHTML += dataCalendarTemplate(item)
-    })
+    const items = document.querySelector(".item_container");
+
+    if (Array.isArray(calendars) && calendars.length > 0) {
+      calendars.forEach((item) => {
+        items.innerHTML += dataCalendarTemplate(item);
+      });
+
+      const dynamicHeader = document.getElementById("dynamic-header");
+      if (dynamicHeader) {
+        dynamicHeader.innerHTML = `
+        <div>
+          <ul class="nav_item-container">
+            <li class="nav_item" id="nav_bell">
+              <a href="#/dashboard" id="notification-bell" onclick="handleNotificationClick()">
+                <i class="fas fa-bell"></i>
+              </a>
+            </li>                        
+            <li class="nav_item">${summary}</li>
+            <li class="nav_item">
+              <button class="logout-button" onclick="handleLogout()">
+                <a href="https://utask-backend-production.up.railway.app/auth/logout">LogOut</a>
+              </button>
+            </li>
+          </ul>
+        </div>
+      `;
+      }
+
+      window.handleLogout = () => {
+        window.location.href = "#/"; // Navigate to the home page
+        location.reload(); // Refresh the page
+      };
+    } else {
+      items.innerHTML = "<h2>Silahkan Login Terlebih Dahulu</h2>";
+    }
+
 
     // Main Detail (id)
     const calendarDetail = await CalendarSource.detailCalendar()
@@ -64,31 +158,7 @@ const Dashboard = {
     const element = document.querySelector('main')
     element.id = 'dashboard'
 
-    const dynamicHeader = document.getElementById('dynamic-header')
-    if (dynamicHeader) {
-      dynamicHeader.innerHTML = `
-        <div>
-          <ul class="nav_item-container">
-            <li class="nav_item" id="nav_bell">
-              <a href="#/dashboard" id="notification-bell" onclick="handleNotificationClick()">
-                <i class="fas fa-bell"></i>
-              </a>
-            </li>                        
-            <li class="nav_item">example@dicoding.org</li>
-            <li class="nav_item">
-              <button class="logout-button" onclick="handleLogout()">
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
-      `
-    }
-
-    window.handleLogout = () => {
-      window.location.href = '#/' // Navigate to the home page
-      location.reload() // Refresh the page
-    }
+    
 
     window.handleNotificationClick = () => {
       const notificationBell = document.getElementById('notification-bell')
@@ -102,14 +172,75 @@ const Dashboard = {
       const modalOverlay = document.getElementById('modal-overlay')
 
       // Get the task details from the clicked item
-      const date = item.querySelector('.item-date').textContent
-      const name = item.querySelector('.item-name').textContent
-      const time = item.querySelector('.item-time').textContent
+      const id = item.querySelector('.item-id').textContent
+      fetchCalendarData(id)
 
       // Update the popup content with the task details
-      document.getElementById('popup-title').textContent = name
-      document.getElementById('popup-date').textContent = date
-      document.getElementById('popup-time').textContent = time
+      function fetchCalendarData (id) {
+        const url = `https://utask-backend-production.up.railway.app/calendar/${id}`
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            const eventData = data.data
+
+            document.getElementById('popup-title').textContent =
+              eventData.summary
+            document.getElementById('popup-day').textContent = getFormattedDate(
+              eventData.start.dateTime
+            )
+            document.getElementById('popup-time').textContent =
+              getFormattedTime(
+                eventData.start.dateTime,
+                eventData.end.dateTime
+              )
+            document.getElementById('popup-date').textContent =
+              getFormattedFullDate(eventData.start.dateTime)
+            document.getElementById('popup-id').textContent = eventData.id
+            document.getElementById(
+              'popup-description-text'
+            ).innerHTML = `${eventData.description}`
+            document.getElementById(
+              'popup-meet-link'
+            ).innerHTML = `Join with Google Meet: <a href="${eventData.hangoutLink}" target="_blank">${eventData.hangoutLink}</a>`
+            document.getElementById('popup-mentor').textContent =
+              eventData.organizer.displayName
+            document.getElementById(
+              'popup-created-by'
+            ).textContent = `Created by ${eventData.creator.email}`
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+          })
+      }
+
+      function getFormattedDate (dateTime) {
+        const date = new Date(dateTime)
+        const options = {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }
+        return date.toLocaleDateString('en-US', options)
+      }
+
+      function getFormattedTime (startDateTime, endDateTime) {
+        const startTime = startDateTime.split('T')[1].slice(0, 5)
+        const endTime = endDateTime.split('T')[1].slice(0, 5)
+        return `${startTime} - ${endTime}`
+      }
+
+      function getFormattedFullDate (dateTime) {
+        const date = new Date(dateTime)
+        const options = {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }
+        return date.toLocaleDateString('en-US', options)
+      }
 
       modalOverlay.style.display = 'flex'
     }
