@@ -128,7 +128,7 @@ const Dashboard = {
             <li class="nav_item">${summary}</li>
             <li class="nav_item">
               <button class="logout-button" onclick="handleLogout()">
-                <a href="https://utask-backend-production.up.railway.app/auth/logout">LogOut</a>
+                LogOut
               </button>
             </li>
           </ul>
@@ -137,8 +137,19 @@ const Dashboard = {
       }
 
       window.handleLogout = () => {
-        window.location.href = "#/"; // Navigate to the home page
-        location.reload(); // Refresh the page
+        const logoutUrl = 'https://utask-backend-production.up.railway.app/auth/logout';
+      
+        fetch(logoutUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.data === true) {
+              window.location.href = '#/'; // Redirect to the home page
+              location.reload(); // Refresh the page
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
       };
     } else {
       items.innerHTML = "<h2>Silahkan Login Terlebih Dahulu</h2>";
